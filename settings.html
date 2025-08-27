@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | StudySphere</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body class="light-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="StudySphere Logo" class="logo">
+                <h1>StudySphere</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="gpa-analyzer.html"><i class="fas fa-calculator"></i> GPA Analyzer</a></li>
+                    <li><a href="focus-zone.html"><i class="fas fa-clock"></i> Focus Zone</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+                    <li class="active"><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="profile-pic"></div>
+                <div class="profile-info">
+                    <span class="username">Student</span>
+                    <span class="user-status">Settings</span>
+                </div>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Settings Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Settings</h2>
+                <div class="header-actions">
+                    <button class="btn secondary-btn" id="reset-all">
+                        <i class="fas fa-trash"></i> Reset All Data
+                    </button>
+                </div>
+            </header>
+
+            <div class="settings-container">
+                <!-- General Settings -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-sliders-h"></i> General Settings</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label for="theme-preference">Theme</label>
+                            <select id="theme-preference" class="form-control">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                                <option value="system">System Preference</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="grading-scale">Grading Scale</label>
+                            <select id="grading-scale" class="form-control">
+                                <option value="4.0">4.0 Scale</option>
+                                <option value="10.0">10.0 Scale</option>
+                                <option value="percentage">Percentage</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="default-view">Default View</label>
+                            <select id="default-view" class="form-control">
+                                <option value="dashboard">Dashboard</option>
+                                <option value="gpa">GPA Analyzer</option>
+                                <option value="focus">Focus Zone</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Focus Timer Settings -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-clock"></i> Focus Timer Settings</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label for="pomodoro-duration">Pomodoro Duration (minutes)</label>
+                            <input type="number" id="pomodoro-duration" class="form-control" min="5" max="120" value="25">
+                        </div>
+                        <div class="setting-item">
+                            <label for="short-break-duration">Short Break Duration (minutes)</label>
+                            <input type="number" id="short-break-duration" class="form-control" min="1" max="30" value="5">
+                        </div>
+                        <div class="setting-item">
+                            <label for="long-break-duration">Long Break Duration (minutes)</label>
+                            <input type="number" id="long-break-duration" class="form-control" min="5" max="60" value="15">
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-checkbox">
+                                <input type="checkbox" id="auto-start-break" checked>
+                                <label for="auto-start-break">Auto-start breaks after sessions</label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-checkbox">
+                                <input type="checkbox" id="enable-notifications" checked>
+                                <label for="enable-notifications">Enable notifications</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sound Settings -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-volume-up"></i> Sound Settings</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <div class="setting-checkbox">
+                                <input type="checkbox" id="enable-sounds">
+                                <label for="enable-sounds">Enable study sounds</label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <label for="default-sound">Default Sound</label>
+                            <select id="default-sound" class="form-control">
+                                <option value="lofi">Lo-fi</option>
+                                <option value="rain">Rain</option>
+                                <option value="forest">Forest</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="volume-level">Volume Level</label>
+                            <input type="range" id="volume-level" class="form-control" min="0" max="100" value="50">
+                            <div class="volume-display" id="volume-display">50%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Management -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-database"></i> Data Management</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item full-width">
+                            <label>Export All Data</label>
+                            <p class="setting-description">Download a backup of all your StudySphere data</p>
+                            <button class="btn secondary-btn" id="export-data">
+                                <i class="fas fa-file-export"></i> Export Data
+                            </button>
+                        </div>
+                        <div class="setting-item full-width">
+                            <label>Import Data</label>
+                            <p class="setting-description">Restore your StudySphere data from a backup file</p>
+                            <button class="btn secondary-btn" id="import-data">
+                                <i class="fas fa-file-import"></i> Import Data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Settings -->
+                <div class="settings-section">
+                    <h3><i class="fas fa-user-cog"></i> Account Settings</h3>
+                    <div class="settings-grid">
+                        <div class="setting-item">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" class="form-control" value="Student">
+                        </div>
+                        <div class="setting-item">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="your@email.com">
+                        </div>
+                        <div class="setting-item">
+                            <label for="password">Change Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="New password">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="settings-actions">
+                    <button class="btn primary-btn" id="save-settings">
+                        <i class="fas fa-save"></i> Save All Settings
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Reset Confirmation Modal -->
+    <div class="modal" id="reset-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Reset All Data</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to reset all your StudySphere data? This action cannot be undone.</p>
+                <p>All your GPA records, focus sessions, tasks, and settings will be permanently deleted.</p>
+                <div class="modal-actions">
+                    <button class="btn secondary-btn close-modal">Cancel</button>
+                    <button class="btn danger-btn" id="confirm-reset">Reset All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

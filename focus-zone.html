@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Zone | StudySphere</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/focus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body class="light-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="StudySphere Logo" class="logo">
+                <h1>StudySphere</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="gpa-analyzer.html"><i class="fas fa-calculator"></i> GPA Analyzer</a></li>
+                    <li class="active"><a href="focus-zone.html"><i class="fas fa-clock"></i> Focus Zone</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="profile-pic"></div>
+                <div class="profile-info">
+                    <span class="username">Student</span>
+                    <span class="user-status">Focusing</span>
+                </div>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Focus Zone Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Focus Zone</h2>
+                <div class="header-actions">
+                    <button class="btn secondary-btn" id="view-stats-btn">
+                        <i class="fas fa-chart-bar"></i> View Stats
+                    </button>
+                </div>
+            </header>
+
+            <div class="focus-container">
+                <!-- Timer Section -->
+                <div class="timer-section">
+                    <div class="timer-display">
+                        <div class="timer-label" id="timer-label">Focus Session</div>
+                        <div class="timer" id="timer-display">25:00</div>
+                        <div class="timer-controls">
+                            <button class="btn primary-btn" id="start-timer">
+                                <i class="fas fa-play"></i> Start
+                            </button>
+                            <button class="btn secondary-btn" id="pause-timer" disabled>
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button class="btn secondary-btn" id="reset-timer">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                    <div class="timer-options">
+                        <select id="timer-type" class="form-control">
+                            <option value="pomodoro">Pomodoro (25:00)</option>
+                            <option value="shortBreak">Short Break (5:00)</option>
+                            <option value="longBreak">Long Break (15:00)</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Task Management -->
+                <div class="task-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-tasks"></i> Tasks</h3>
+                    </div>
+                    <div class="task-input-container">
+                        <input type="text" id="task-input" class="form-control" placeholder="Add a new task...">
+                        <button class="btn primary-btn" id="add-task">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                    <ul class="task-list" id="task-list">
+                        <!-- Tasks will be loaded here dynamically -->
+                    </ul>
+                </div>
+
+                <!-- Focus Tools -->
+                <div class="tools-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-tools"></i> Focus Tools</h3>
+                    </div>
+                    <div class="tools-grid">
+                        <button class="tool-card" id="block-distractions">
+                            <i class="fas fa-lock-open"></i>
+                            <span>Block Distractions</span>
+                        </button>
+                        <button class="tool-card" id="enable-sounds">
+                            <i class="fas fa-volume-up"></i>
+                            <span>Enable Sounds</span>
+                        </button>
+                        <div class="tool-card sound-selector">
+                            <label for="sound-selector"><i class="fas fa-music"></i> Sound:</label>
+                            <select id="sound-selector" class="form-control">
+                                <option value="lofi">Lo-fi</option>
+                                <option value="rain">Rain</option>
+                                <option value="forest">Forest</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Focus Plant -->
+                <div class="plant-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-seedling"></i> Your Focus Plant</h3>
+                        <div class="streak-counter">
+                            <span id="current-streak">0</span> day streak
+                        </div>
+                    </div>
+                    <div class="plant-container">
+                        <div class="plant" id="focus-plant">
+                            <img src="assets/images/IMG-20250504-WA0005.jpg" alt="Focus Plant">
+                        </div>
+<!--                        <div class="plant" id="focus-plant">-->
+<!--                            <img src="assets/images/IMG-20250504-WA0004.jpg" alt="Focus Plant">-->
+<!--                        </div>-->
+<!--                        <div class="plant" id="focus-plant">-->
+<!--                            <img src="assets/images/IMG-20250504-WA0003.jpg" alt="Focus Plant">-->
+<!--                        </div>-->
+<!--                        <div class="plant" id="focus-plant">-->
+<!--                            <img src="assets/images/IMG-20250504-WA0002.jpg" alt="Focus Plant">-->
+<!--                        </div>-->
+<!--                        <div class="plant" id="focus-plant">-->
+<!--                            <img src="assets/images/IMG-20250504-WA0001.jpg" alt="Focus Plant">-->
+<!--                        </div>-->
+                        <div class="plant-progress">
+                            <div class="progress-text">
+                                Complete <span id="sessions-to-next">3</span> more sessions to grow your plant!
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="plant-progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Sessions -->
+                <div class="sessions-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-history"></i> Recent Sessions</h3>
+                        <a href="dashboard.html" class="view-all">View All</a>
+                    </div>
+                    <ul class="session-list" id="session-history">
+                        <!-- Sessions will be loaded here dynamically -->
+                    </ul>
+                </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/focus.js"></script>
+</body>
+</html>

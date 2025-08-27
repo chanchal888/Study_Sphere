@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySphere | Smart GPA Tracker & Focus Manager</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+</head>
+<body class="light-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="StudySphere Logo" class="logo">
+                <h1>StudySphere</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="gpa-analyzer.html"><i class="fas fa-calculator"></i> GPA Analyzer</a></li>
+                    <li><a href="focus-zone.html"><i class="fas fa-clock"></i> Focus Zone</a></li>
+                    <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <div class="profile-pic"></div>
+                <div class="profile-info">
+                    <span class="username">Student</span>
+                    <span class="user-status">Focusing</span>
+                </div>
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Dashboard</h2>
+                <div class="header-actions">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <button class="btn primary-btn" id="start-focus-btn">
+                        <i class="fas fa-play"></i> Start Focus Session
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Widgets -->
+            <div class="dashboard-grid">
+                <!-- GPA Summary Widget -->
+                <div class="widget gpa-summary">
+                    <div class="widget-header">
+                        <h3>GPA Summary</h3>
+                        <a href="gpa-analyzer.html" class="widget-link">View Details</a>
+                    </div>
+                    <div class="gpa-display">
+                        <div class="current-gpa">
+                            <span class="gpa-value">3.75</span>
+                            <span class="gpa-label">Current GPA</span>
+                        </div>
+                        <div class="gpa-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%;"></div>
+                            </div>
+                            <span class="progress-text">75% to your goal (4.0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Focus Stats Widget -->
+                <div class="widget focus-stats">
+                    <div class="widget-header">
+                        <h3>Focus Stats</h3>
+                        <a href="focus-zone.html" class="widget-link">Start Session</a>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value">12.5</span>
+                            <span class="stat-label">Hours This Week</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">7</span>
+                            <span class="stat-label">Day Streak</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">85%</span>
+                            <span class="stat-label">Productivity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Tasks Widget -->
+                <div class="widget upcoming-tasks">
+                    <div class="widget-header">
+                        <h3>Upcoming Tasks</h3>
+                        <a href="focus-zone.html" class="widget-link">Add Task</a>
+                    </div>
+                    <ul class="task-list">
+                        <li class="task-item">
+                            <input type="checkbox" id="task1">
+                            <label for="task1">Complete Math Assignment</label>
+                            <span class="task-due">Due Tomorrow</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" id="task2">
+                            <label for="task2">Study for Chemistry Test</label>
+                            <span class="task-due">Due in 2 days</span>
+                        </li>
+                        <li class="task-item">
+                            <input type="checkbox" id="task3">
+                            <label for="task3">Read History Chapter 5</label>
+                            <span class="task-due">Due Friday</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Study Progress Widget -->
+                <div class="widget study-progress">
+                    <div class="widget-header">
+                        <h3>Study Progress</h3>
+                        <div class="time-filter">
+                            <button class="active">Week</button>
+                            <button>Month</button>
+                            <button>Semester</button>
+                        </div>
+                    </div>
+                    <canvas id="studyProgressChart"></canvas>
+                </div>
+
+                <!-- Motivational Quote Widget -->
+                <div class="widget quote-widget">
+                    <div class="quote-content">
+                        <p>"The expert in anything was once a beginner."</p>
+                        <span class="quote-author">- Helen Hayes</span>
+                    </div>
+                    <div class="plant-growth">
+                        <div class="plant-stages">
+                            <img src="assets/images/plant-stage3.png" alt="Growing Plant" class="plant-image">
+                        </div>
+                        <div class="growth-progress">
+                            <span class="growth-text">Your focus plant is growing!</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Sessions Widget -->
+                <div class="widget recent-sessions">
+                    <div class="widget-header">
+                        <h3>Recent Sessions</h3>
+                        <a href="dashboard.html" class="widget-link">View All</a>
+                    </div>
+                    <ul class="session-list">
+                        <li class="session-item">
+                            <div class="session-subject">Mathematics</div>
+                            <div class="session-duration">50 mins</div>
+                            <div class="session-date">Today, 10:30 AM</div>
+                        </li>
+                        <li class="session-item">
+                            <div class="session-subject">Chemistry</div>
+                            <div class="session-duration">1 hr 25 mins</div>
+                            <div class="session-date">Yesterday, 4:15 PM</div>
+                        </li>
+                        <li class="session-item">
+                            <div class="session-subject">History</div>
+                            <div class="session-duration">35 mins</div>
+                            <div class="session-date">Yesterday, 9:00 AM</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="lib/chart.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
